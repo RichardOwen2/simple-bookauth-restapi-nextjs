@@ -61,7 +61,7 @@ export const getBooks = async (userId: string) => {
   return books;
 }
 
-export const getDetailBooksById = async ({ userId, bookId }: { userId: string; bookId: string; }) => {
+export const getDetailBookById = async ({ userId, bookId }: { userId: string; bookId: string; }) => {
   await _verifyBookOwner({ userId, bookId });
 
   const book = await prisma.book.findFirst({

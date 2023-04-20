@@ -4,7 +4,7 @@ import errorHandler from "@/utils/errorHandler";
 import getTokenHandler from "@/utils/getTokenHandler";
 
 import { validatePutBookPayload } from "@/validators/bookValidator";
-import { getDetailBooksById, editBookById, deleteBookById } from "@/services/bookService";
+import { getDetailBookById, editBookById, deleteBookById } from "@/services/bookService";
 
 interface Params {
   params: {
@@ -17,7 +17,7 @@ export async function GET(request: Request, { params } : Params) {
     const userId = getTokenHandler(request);
     const bookId = params.id;
 
-    const book = await getDetailBooksById({userId, bookId});
+    const book = await getDetailBookById({userId, bookId});
 
     return NextResponse.json({
       status: 'success',
